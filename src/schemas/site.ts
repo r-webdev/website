@@ -4,6 +4,7 @@ export const SiteSchema = z.object({
   name: z.string(),
   tagline: z.string(),
   description: z.string(),
+  memberCount: z.string().optional(),
   discordInviteUrl: z.string().url(),
   socials: z.object({
     github: z.string().url().optional(),

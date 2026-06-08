@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#f0f4ff"/>
+  <rect x="0" y="0" width="1200" height="8" fill="#3b5bdb"/>
+  <text x="600" y="260" text-anchor="middle" font-family="system-ui, sans-serif" font-size="72" font-weight="700" fill="#0f172a">Web Dev &amp; Design</text>
+  <text x="600" y="340" text-anchor="middle" font-family="system-ui, sans-serif" font-size="32" fill="#64748b">A Discord community for web developers and designers</text>
+  <rect x="450" y="400" width="300" height="56" rx="12" fill="#3b5bdb"/>
+  <text x="600" y="437" text-anchor="middle" font-family="system-ui, sans-serif" font-size="24" font-weight="600" fill="#ffffff">Join Discord</text>
+</svg>

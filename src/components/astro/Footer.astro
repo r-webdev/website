@@ -1,4 +1,6 @@
 ---
+import DiscordCTA from './DiscordCTA.astro';
+
 interface Props {
   siteName: string;
   discordUrl: string;
@@ -15,15 +17,8 @@ const year = new Date().getFullYear();
       <p class="font-semibold text-ink">{siteName}</p>
       <p class="mt-1 text-sm text-ink-muted">Hosted on Cloudflare Pages</p>
     </div>
-    <nav class="flex items-center gap-4" aria-label="Social links">
-      <a
-        href={discordUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-sm font-medium text-ink-muted hover:text-brand-600"
-      >
-        Discord
-      </a>
+    <nav class="flex flex-wrap items-center gap-4" aria-label="Social links">
+      <DiscordCTA href={discordUrl} variant="secondary" />
       {
         githubUrl && (
           <a

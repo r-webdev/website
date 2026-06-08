@@ -13,7 +13,7 @@ Community website for the **Web Dev & Design** Discord server. Built with Astro,
 
 ## Getting started
 
-Requires Node.js 22+.
+Requires Node.js 24+.
 
 ```bash
 pnpm install
@@ -30,6 +30,8 @@ pnpm dev
 | `pnpm preview` | Preview production build |
 | `pnpm test` | Run tests in watch mode |
 | `pnpm test:run` | Run tests once (CI) |
+| `pnpm lint` | Lint with ESLint |
+| `pnpm generate:og-image` | Regenerate `public/og-image.png` from SVG |
 
 ## Environment variables
 
@@ -46,7 +48,19 @@ pnpm dev
 
 ## Deployment
 
-Build command: `pnpm build`  
-Output directory: `dist`
+This project includes a [`wrangler.toml`](wrangler.toml) for Cloudflare Pages.
+
+| Setting | Value |
+|---------|-------|
+| Build command | `pnpm build` |
+| Output directory | `dist` |
+| Node version | 24 |
 
 Set `PUBLIC_SITE_URL` and `PUBLIC_DISCORD_INVITE_URL` in Cloudflare Pages environment variables.
+
+For local preview with Wrangler:
+
+```bash
+pnpm build
+pnpm dlx wrangler pages dev dist
+```
