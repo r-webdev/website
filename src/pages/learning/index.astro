@@ -1,0 +1,33 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ResourceSearch from '../../components/react/ResourceSearch';
+import { sortFeaturedFirst } from '../../lib/resources';
+import type { Resource } from '../../schemas/resource';
+
+const entries = await getCollection('resources');
+
+const resources: Resource[] = sortFeaturedFirst(
+  entries.map((entry) => ({
+    id: entry.id,
+    title: entry.data.title,
+    url: entry.data.url,
+    description: entry.data.description,
+    category: entry.data.category,
+    tags: entry.data.tags,
+    featured: entry.data.featured,
+  })),
+);
+---
+
+<BaseLayout title="Learning" description="Curated learning resources for web developers and designers.">
+  <section class="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+    <header class="mb-8 max-w-2xl">
+      <h1 class="text-3xl font-bold tracking-tight text-ink sm:text-4xl">Learning &amp; Resources</h1>
+      <p class="mt-3 text-lg text-ink-muted">
+        A curated list of tools, docs, and guides recommended by the community.
+      </p>
+    </header>
+    <ResourceSearch client:visible resources={resources} />
+  </section>
+</BaseLayout>

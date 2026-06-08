@@ -1,0 +1,10 @@
+{
+  "name": "Web Dev & Design",
+  "tagline": "A Discord community for web developers and designers",
+  "description": "We're a chat community of web developers and designers. Come discuss HTML, CSS, JavaScript, UI/UX, accessibility, and everything in between — or ask for help!",
+  "discordInviteUrl": "https://discord.gg/webdevdesign",
+  "socials": {
+    "github": "https://github.com/webdevdesign",
+    "discord": "https://discord.gg/webdevdesign"
+  }
+}

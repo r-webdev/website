@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/astro/Hero.astro';
+import { getEnv, getSiteConfig } from '../lib/env';
+
+const site = getSiteConfig();
+const env = getEnv();
+---
+
+<BaseLayout>
+  <Hero
+    name={site.name}
+    tagline={site.tagline}
+    description={site.description}
+    discordUrl={env.discordInviteUrl}
+  />
+</BaseLayout>

@@ -1,0 +1,27 @@
+---
+interface Props {
+  href: string;
+  variant?: 'primary' | 'secondary';
+  class?: string;
+}
+
+const { href, variant = 'primary', class: className = '' } = Astro.props;
+
+const base =
+  'inline-flex items-center justify-center rounded-lg px-5 py-2.5 text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2';
+
+const variants = {
+  primary: 'bg-brand-600 text-white hover:bg-brand-700 focus-visible:outline-brand-500',
+  secondary:
+    'border border-brand-600 text-brand-700 hover:bg-brand-50 focus-visible:outline-brand-500',
+};
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  class:list={[base, variants[variant], className]}
+>
+  Join Discord
+</a>
