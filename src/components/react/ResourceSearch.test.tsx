@@ -45,4 +45,12 @@ describe('ResourceSearch', () => {
     expect(screen.getByText('MDN HTML')).toBeInTheDocument();
     expect(screen.queryByText('CSS Tricks')).not.toBeInTheDocument();
   });
+
+  it('shows admin-gold featured badge', () => {
+    render(<ResourceSearch resources={mockResources} />);
+
+    const badge = screen.getByText('Featured');
+    expect(badge).toHaveClass('text-admin');
+    expect(badge).toHaveClass('bg-admin/20');
+  });
 });
