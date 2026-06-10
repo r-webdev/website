@@ -12,7 +12,8 @@ describe('Header', () => {
       },
     });
 
-    expect(html).toContain('/server-logo.svg');
+    expect(html).toContain('/logo.png');
+    expect(html).toContain('pride-border');
     expect(html).toContain('Web Dev &amp; Design');
     expect(html).toContain('Learning');
     expect(html).toContain('Code of Conduct');

@@ -17,7 +17,9 @@
   --color-ink-muted: #94a3b8;
 
   --color-admin: #f1c40f;
+  --color-admin-700: #d4a80e;
   --color-mod: #42b883;
+  --color-mod-700: #369870;
   --color-discord: #5865f2;
 }
 
@@ -33,16 +35,15 @@ body {
   @apply outline-2 outline-offset-2 outline-brand-500;
 }
 
-@utility pride-halo {
-  background: radial-gradient(
-    ellipse at center,
-    rgba(255, 0, 128, 0.35) 0%,
-    rgba(255, 140, 0, 0.3) 20%,
-    rgba(255, 215, 0, 0.25) 35%,
-    rgba(0, 200, 100, 0.25) 50%,
-    rgba(0, 150, 255, 0.3) 65%,
-    rgba(130, 80, 220, 0.25) 80%,
-    transparent 70%
+@utility pride-border {
+  background: linear-gradient(
+    to right,
+    #ff0080,
+    #ff8c00,
+    #ffd700,
+    #00c864,
+    #0096ff,
+    #8250dc
   );
 }
 
