@@ -65,7 +65,7 @@ export default function MobileNav({ navLinks, discordUrl }: MobileNavProps) {
                 href={discordUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700"
+                className="inline-flex rounded-lg bg-mod px-4 py-2 text-sm font-semibold text-white hover:bg-mod-700"
               >
                 Join Discord
               </a>

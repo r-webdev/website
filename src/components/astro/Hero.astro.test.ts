@@ -20,7 +20,8 @@ describe('Hero', () => {
     expect(html).toContain('A place to learn, help, and belong');
     expect(html).toContain('1,000+ members and growing');
     expect(html).toContain('Browse resources');
-    expect(html).toContain('/server-logo.svg');
+    expect(html).toContain('/logo.png');
+    expect(html).toContain('bg-mod');
     expect(html).toContain('from-surface-elevated');
   });
 });
