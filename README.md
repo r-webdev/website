@@ -31,7 +31,7 @@ pnpm dev
 | `pnpm test` | Run tests in watch mode |
 | `pnpm test:run` | Run tests once (CI) |
 | `pnpm lint` | Lint with ESLint |
-| `pnpm generate:og-image` | Regenerate `public/og-image.png` from SVG |
+| `pnpm generate:og-image` | Regenerate `public/og-image.png` using `public/logo.png` |
 
 ## Environment variables
 
