@@ -31,7 +31,8 @@ pnpm dev
 | `pnpm test` | Run tests in watch mode |
 | `pnpm test:run` | Run tests once (CI) |
 | `pnpm lint` | Lint with ESLint |
-| `pnpm generate:og-image` | Regenerate `public/og-image.png` using `public/logo.png` |
+
+The Open Graph image at `/og-image.png` is generated at build time from `public/og-image.svg` and `public/logo.png` via a [static file endpoint](https://docs.astro.build/en/guides/endpoints/#static-file-endpoints) (`src/pages/og-image.png.ts`).
 
 ## Environment variables
 
