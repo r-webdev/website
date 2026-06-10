@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/astro/Hero.astro';
+import ValueCards from '../components/astro/ValueCards.astro';
+import CommunityCallout from '../components/astro/CommunityCallout.astro';
 import { getEnv, getSiteConfig } from '../lib/env';
 
 const site = getSiteConfig();
@@ -15,4 +17,6 @@ const env = getEnv();
     discordUrl={env.discordInviteUrl}
     memberCount={site.memberCount}
   />
+  <ValueCards />
+  <CommunityCallout />
 </BaseLayout>
