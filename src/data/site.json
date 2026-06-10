@@ -3,6 +3,7 @@
   "tagline": "A place to learn, help, and belong",
   "description": "We're an inclusive Discord community of web developers and designers. Share knowledge, ask for help, and hang out — whether you're learning HTML or refining your craft. This is a social space, not a job board: no hiring, recruiting, or freelance gigs.",
   "memberCount": "1,000+",
+  "discordServerId": "434487340535382016",
   "discordInviteUrl": "https://discord.gg/webdevdesign",
   "socials": {
     "github": "https://github.com/webdevdesign",
