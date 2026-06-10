@@ -1,12 +1,15 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/astro/Hero.astro';
-import ValueCards from '../components/astro/ValueCards.astro';
-import CommunityCallout from '../components/astro/CommunityCallout.astro';
-import { getEnv, getSiteConfig } from '../lib/env';
+import CommunityCallout from "../components/astro/CommunityCallout.astro";
+import DiscordWidget from "../components/astro/DiscordWidget.astro";
+import Hero from "../components/astro/Hero.astro";
+import ValueCards from "../components/astro/ValueCards.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { fetchDiscordWidget } from "../lib/discordWidget";
+import { getEnv, getSiteConfig } from "../lib/env";
 
 const site = getSiteConfig();
 const env = getEnv();
+const discordWidget = await fetchDiscordWidget(site.discordServerId);
 ---
 
 <BaseLayout>
@@ -18,5 +21,6 @@ const env = getEnv();
     memberCount={site.memberCount}
   />
   <ValueCards />
+  <DiscordWidget widget={discordWidget} inviteUrl={env.discordInviteUrl} />
   <CommunityCallout />
 </BaseLayout>
