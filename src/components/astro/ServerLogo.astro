@@ -1,0 +1,31 @@
+---
+interface Props {
+  size?: 'sm' | 'md' | 'lg';
+  class?: string;
+}
+
+const { size = 'md', class: className = '' } = Astro.props;
+
+const sizes = {
+  sm: { wrapper: 'h-8 w-8', halo: 'scale-150', img: 'h-6 w-6' },
+  md: { wrapper: 'h-16 w-16', halo: 'scale-[2]', img: 'h-12 w-12' },
+  lg: { wrapper: 'h-28 w-28', halo: 'scale-[2.5]', img: 'h-20 w-20' },
+};
+---
+
+<div
+  class:list={['relative flex items-center justify-center', sizes[size].wrapper, className]}
+>
+  <div
+    class:list={['absolute inset-0 rounded-full pride-halo blur-md', sizes[size].halo]}
+    aria-hidden="true"
+  />
+  <img
+    src="/server-logo.svg"
+    alt=""
+    class:list={['relative z-10', sizes[size].img]}
+    width="64"
+    height="64"
+    aria-hidden="true"
+  />
+</div>
