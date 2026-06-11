@@ -12,7 +12,7 @@ export const ResourceCategorySchema = z.enum([
 export const ResourceSchema = z.object({
   id: z.string(),
   title: z.string(),
-  url: z.string().url(),
+  url: z.url(),
   description: z.string().optional(),
   category: ResourceCategorySchema,
   tags: z.array(z.string()).default([]),

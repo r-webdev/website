@@ -20,7 +20,7 @@ export const GET = (async () => {
     .png()
     .toBuffer();
 
-  return new Response(buffer, {
+  return new Response(new Uint8Array(buffer), {
     headers: { 'Content-Type': 'image/png' },
   });
 }) satisfies APIRoute;

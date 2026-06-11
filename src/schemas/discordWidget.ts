@@ -4,7 +4,7 @@ export const DiscordWidgetMemberSchema = z.object({
   id: z.string(),
   username: z.string(),
   status: z.enum(['online', 'idle', 'dnd', 'offline']).optional(),
-  avatar_url: z.string().url(),
+  avatar_url: z.url(),
   game: z.object({ name: z.string() }).optional(),
   channel_id: z.string().optional(),
 });
@@ -18,7 +18,7 @@ export const DiscordWidgetChannelSchema = z.object({
 export const DiscordWidgetSchema = z.object({
   id: z.string(),
   name: z.string(),
-  instant_invite: z.string().url().optional(),
+  instant_invite: z.url().optional(),
   presence_count: z.number(),
   channels: z.array(DiscordWidgetChannelSchema),
   members: z.array(DiscordWidgetMemberSchema),

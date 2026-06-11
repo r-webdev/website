@@ -6,10 +6,10 @@ export const SiteSchema = z.object({
   description: z.string(),
   memberCount: z.string().optional(),
   discordServerId: z.string(),
-  discordInviteUrl: z.string().url(),
+  discordInviteUrl: z.url(),
   socials: z.object({
-    github: z.string().url().optional(),
-    discord: z.string().url().optional(),
+    github: z.url().optional(),
+    discord: z.url().optional(),
   }),
 });
 
