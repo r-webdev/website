@@ -38,7 +38,7 @@ export default function ResourceSearch({ resources }: ResourceSearchProps) {
           placeholder="Search resources..."
           value={query}
           onChange={(event) => setQuery(event.target.value)}
-          className="w-full rounded-lg border border-slate-300 px-4 py-2 text-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20 sm:max-w-sm"
+          className="w-full rounded-lg border border-border bg-surface-elevated px-4 py-2 text-sm text-ink placeholder:text-ink-muted focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20 sm:max-w-sm"
         />
         <label className="sr-only" htmlFor="resource-category">
           Filter by category
@@ -47,7 +47,7 @@ export default function ResourceSearch({ resources }: ResourceSearchProps) {
           id="resource-category"
           value={category}
           onChange={(event) => setCategory(event.target.value as ResourceCategory | 'all')}
-          className="rounded-lg border border-slate-300 px-4 py-2 text-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20"
+          className="rounded-lg border border-border bg-surface-elevated px-4 py-2 text-sm text-ink focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20"
         >
           {categories.map((value) => (
             <option key={value} value={value}>
@@ -64,20 +64,20 @@ export default function ResourceSearch({ resources }: ResourceSearchProps) {
       <ul className="grid gap-4 sm:grid-cols-2">
         {filtered.map((resource) => (
           <li key={resource.id}>
-            <article className="h-full rounded-xl border border-slate-200 bg-surface-elevated p-5 shadow-sm">
+            <article className="h-full rounded-xl border border-border bg-surface-elevated p-5">
               <div className="flex items-start justify-between gap-3">
                 <h3 className="text-lg font-semibold text-ink">
                   <a
                     href={resource.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-brand-600"
+                    className="hover:text-brand-500"
                   >
                     {resource.title}
                   </a>
                 </h3>
                 {resource.featured && (
-                  <span className="shrink-0 rounded-full bg-brand-100 px-2 py-0.5 text-xs font-medium text-brand-700">
+                  <span className="shrink-0 rounded-full bg-admin/20 px-2 py-0.5 text-xs font-medium text-admin">
                     Featured
                   </span>
                 )}
@@ -85,7 +85,7 @@ export default function ResourceSearch({ resources }: ResourceSearchProps) {
               {resource.description && (
                 <p className="mt-2 text-sm text-ink-muted">{resource.description}</p>
               )}
-              <p className="mt-3 text-xs font-medium uppercase tracking-wide text-brand-600">
+              <p className="mt-3 text-xs font-medium uppercase tracking-wide text-brand-500">
                 {resource.category}
               </p>
             </article>

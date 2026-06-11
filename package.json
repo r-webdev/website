@@ -14,8 +14,7 @@
     "lint": "eslint .",
     "test": "vitest",
     "test:run": "vitest run",
-    "test:coverage": "vitest run --coverage",
-    "generate:og-image": "node scripts/generate-og-image.mjs"
+    "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@astrojs/react": "^5.0.7",

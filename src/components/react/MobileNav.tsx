@@ -33,7 +33,7 @@ export default function MobileNav({ navLinks, discordUrl }: MobileNavProps) {
       <button
         ref={buttonRef}
         type="button"
-        className="inline-flex items-center justify-center rounded-lg border border-slate-300 px-3 py-2 text-sm font-medium text-ink"
+        className="inline-flex items-center justify-center rounded-lg border border-border bg-surface-elevated px-3 py-2 text-sm font-medium text-ink hover:bg-surface-hover"
         aria-expanded={open}
         aria-controls={menuId}
         onClick={() => setOpen((value) => !value)}
@@ -45,7 +45,7 @@ export default function MobileNav({ navLinks, discordUrl }: MobileNavProps) {
         <nav
           id={menuId}
           aria-label="Mobile navigation"
-          className="absolute left-0 right-0 top-full border-b border-slate-200 bg-surface-elevated px-4 py-4 shadow-md"
+          className="absolute left-0 right-0 top-full border-b border-border bg-surface-elevated px-4 py-4 shadow-md"
         >
           <ul className="flex flex-col gap-3">
             {navLinks.map((link, index) => (
@@ -53,7 +53,7 @@ export default function MobileNav({ navLinks, discordUrl }: MobileNavProps) {
                 <a
                   ref={index === 0 ? firstLinkRef : undefined}
                   href={link.href}
-                  className="block text-sm font-medium text-ink-muted hover:text-brand-600"
+                  className="block text-sm font-medium text-ink-muted hover:text-brand-500"
                   onClick={() => setOpen(false)}
                 >
                   {link.label}
@@ -65,7 +65,7 @@ export default function MobileNav({ navLinks, discordUrl }: MobileNavProps) {
                 href={discordUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700"
+                className="inline-flex rounded-lg bg-mod px-4 py-2 text-sm font-semibold text-white hover:bg-mod-700"
               >
                 Join Discord
               </a>

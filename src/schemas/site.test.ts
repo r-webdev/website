@@ -7,6 +7,7 @@ describe('SiteSchema', () => {
       name: 'Web Dev & Design',
       tagline: 'A community',
       description: 'Description',
+      discordServerId: '434487340535382016',
       discordInviteUrl: 'https://discord.gg/example',
       socials: {
         github: 'https://github.com/example',
