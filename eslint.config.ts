@@ -14,7 +14,16 @@ export default defineConfig([
 
   prettierConfig,
   {
-    ignores: ["dist/", ".astro/", "node_modules/", "pnpm-lock.yaml"],
+    ignores: [
+      "dist/",
+      ".astro/",
+      "node_modules/",
+      "pnpm-lock.yaml",
+      ".vscode/",
+      ".husky/",
+      ".cursor/",
+      "terraform/",
+    ],
   },
   {
     files: ["**/*.{mjs,js,cjs}"],
