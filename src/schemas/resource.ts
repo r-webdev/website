@@ -1,18 +1,18 @@
-import { z } from 'zod';
+import { z } from "zod";
 
 export const ResourceCategorySchema = z.enum([
-  'html',
-  'css',
-  'js',
-  'design',
-  'tools',
-  'accessibility',
+  "html",
+  "css",
+  "js",
+  "design",
+  "tools",
+  "accessibility",
 ]);
 
 export const ResourceSchema = z.object({
   id: z.string(),
   title: z.string(),
-  url: z.string().url(),
+  url: z.url(),
   description: z.string().optional(),
   category: ResourceCategorySchema,
   tags: z.array(z.string()).default([]),

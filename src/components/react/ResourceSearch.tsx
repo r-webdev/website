@@ -1,24 +1,24 @@
-import { useMemo, useState } from 'react';
-import type { Resource, ResourceCategory } from '../../schemas/resource';
-import { filterResources } from '../../lib/resources';
+import { useMemo, useState } from "react";
+import type { Resource, ResourceCategory } from "../../schemas/resource";
+import { filterResources } from "../../lib/resources";
 
 interface ResourceSearchProps {
   resources: Resource[];
 }
 
-const categories: Array<ResourceCategory | 'all'> = [
-  'all',
-  'html',
-  'css',
-  'js',
-  'design',
-  'tools',
-  'accessibility',
+const categories: Array<ResourceCategory | "all"> = [
+  "all",
+  "html",
+  "css",
+  "js",
+  "design",
+  "tools",
+  "accessibility",
 ];
 
 export default function ResourceSearch({ resources }: ResourceSearchProps) {
-  const [query, setQuery] = useState('');
-  const [category, setCategory] = useState<ResourceCategory | 'all'>('all');
+  const [query, setQuery] = useState("");
+  const [category, setCategory] = useState<ResourceCategory | "all">("all");
 
   const filtered = useMemo(
     () => filterResources(resources, query, category),
@@ -38,7 +38,7 @@ export default function ResourceSearch({ resources }: ResourceSearchProps) {
           placeholder="Search resources..."
           value={query}
           onChange={(event) => setQuery(event.target.value)}
-          className="w-full rounded-lg border border-border bg-surface-elevated px-4 py-2 text-sm text-ink placeholder:text-ink-muted focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20 sm:max-w-sm"
+          className="border-border bg-surface-elevated text-ink placeholder:text-ink-muted focus:border-brand-500 focus:ring-brand-500/20 w-full rounded-lg border px-4 py-2 text-sm focus:ring-2 focus:outline-none sm:max-w-sm"
         />
         <label className="sr-only" htmlFor="resource-category">
           Filter by category
@@ -46,27 +46,29 @@ export default function ResourceSearch({ resources }: ResourceSearchProps) {
         <select
           id="resource-category"
           value={category}
-          onChange={(event) => setCategory(event.target.value as ResourceCategory | 'all')}
-          className="rounded-lg border border-border bg-surface-elevated px-4 py-2 text-sm text-ink focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20"
+          onChange={(event) =>
+            setCategory(event.target.value as ResourceCategory | "all")
+          }
+          className="border-border bg-surface-elevated text-ink focus:border-brand-500 focus:ring-brand-500/20 rounded-lg border px-4 py-2 text-sm focus:ring-2 focus:outline-none"
         >
           {categories.map((value) => (
             <option key={value} value={value}>
-              {value === 'all' ? 'All categories' : value}
+              {value === "all" ? "All categories" : value}
             </option>
           ))}
         </select>
       </div>
 
-      <p className="text-sm text-ink-muted">
-        {filtered.length} resource{filtered.length === 1 ? '' : 's'}
+      <p className="text-ink-muted text-sm">
+        {filtered.length} resource{filtered.length === 1 ? "" : "s"}
       </p>
 
       <ul className="grid gap-4 sm:grid-cols-2">
         {filtered.map((resource) => (
           <li key={resource.id}>
-            <article className="h-full rounded-xl border border-border bg-surface-elevated p-5">
+            <article className="border-border bg-surface-elevated h-full rounded-xl border p-5">
               <div className="flex items-start justify-between gap-3">
-                <h3 className="text-lg font-semibold text-ink">
+                <h3 className="text-ink text-lg font-semibold">
                   <a
                     href={resource.url}
                     target="_blank"
@@ -77,15 +79,17 @@ export default function ResourceSearch({ resources }: ResourceSearchProps) {
                   </a>
                 </h3>
                 {resource.featured && (
-                  <span className="shrink-0 rounded-full bg-admin/20 px-2 py-0.5 text-xs font-medium text-admin">
+                  <span className="bg-admin/20 text-admin shrink-0 rounded-full px-2 py-0.5 text-xs font-medium">
                     Featured
                   </span>
                 )}
               </div>
               {resource.description && (
-                <p className="mt-2 text-sm text-ink-muted">{resource.description}</p>
+                <p className="text-ink-muted mt-2 text-sm">
+                  {resource.description}
+                </p>
               )}
-              <p className="mt-3 text-xs font-medium uppercase tracking-wide text-brand-500">
+              <p className="text-brand-500 mt-3 text-xs font-medium tracking-wide uppercase">
                 {resource.category}
               </p>
             </article>
@@ -94,7 +98,9 @@ export default function ResourceSearch({ resources }: ResourceSearchProps) {
       </ul>
 
       {filtered.length === 0 && (
-        <p className="text-sm text-ink-muted">No resources match your search.</p>
+        <p className="text-ink-muted text-sm">
+          No resources match your search.
+        </p>
       )}
     </div>
   );

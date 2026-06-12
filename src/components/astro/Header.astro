@@ -1,8 +1,8 @@
 ---
-import DiscordCTA from './DiscordCTA.astro';
-import ServerLogo from './ServerLogo.astro';
-import MobileNav from '../react/MobileNav';
-import { navLinks } from '../../lib/nav';
+import DiscordCTA from "./DiscordCTA.astro";
+import ServerLogo from "./ServerLogo.astro";
+import MobileNav from "../react/MobileNav";
+import { navLinks } from "../../lib/nav";
 
 interface Props {
   siteName: string;
@@ -12,10 +12,17 @@ interface Props {
 const { siteName, discordUrl } = Astro.props;
 ---
 
-<header class="sticky top-0 z-50 border-b border-border bg-surface-elevated/95 backdrop-blur">
-  <div class="h-1 w-full pride-border" aria-hidden="true"></div>
-  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-    <a href="/" class="flex items-center gap-2.5 text-lg font-bold text-ink hover:text-brand-500">
+<header
+  class="border-border bg-surface-elevated/95 sticky top-0 z-50 border-b backdrop-blur"
+>
+  <div class="pride-border h-1 w-full" aria-hidden="true"></div>
+  <div
+    class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6"
+  >
+    <a
+      href="/"
+      class="text-ink hover:text-brand-500 flex items-center gap-2.5 text-lg font-bold"
+    >
       <ServerLogo size="sm" />
       <span>{siteName}</span>
     </a>
@@ -23,7 +30,10 @@ const { siteName, discordUrl } = Astro.props;
     <nav class="hidden items-center gap-6 md:flex" aria-label="Main navigation">
       {
         navLinks.map((link) => (
-          <a href={link.href} class="text-sm font-medium text-ink-muted hover:text-brand-500">
+          <a
+            href={link.href}
+            class="text-ink-muted hover:text-brand-500 text-sm font-medium"
+          >
             {link.label}
           </a>
         ))

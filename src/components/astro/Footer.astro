@@ -1,5 +1,5 @@
 ---
-import DiscordCTA from './DiscordCTA.astro';
+import DiscordCTA from "./DiscordCTA.astro";
 
 interface Props {
   siteName: string;
@@ -11,11 +11,13 @@ const { siteName, discordUrl, githubUrl } = Astro.props;
 const year = new Date().getFullYear();
 ---
 
-<footer class="border-t border-border bg-surface-elevated">
-  <div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-8 sm:px-6 md:flex-row md:items-center md:justify-between">
+<footer class="border-border bg-surface-elevated border-t">
+  <div
+    class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-8 sm:px-6 md:flex-row md:items-center md:justify-between"
+  >
     <div>
-      <p class="font-semibold text-ink">{siteName}</p>
-      <p class="mt-1 text-sm text-ink-muted">Hosted on Cloudflare Pages</p>
+      <p class="text-ink font-semibold">{siteName}</p>
+      <p class="text-ink-muted mt-1 text-sm">Hosted on Cloudflare Pages</p>
     </div>
     <nav class="flex flex-wrap items-center gap-4" aria-label="Social links">
       <DiscordCTA href={discordUrl} variant="secondary" />
@@ -25,13 +27,13 @@ const year = new Date().getFullYear();
             href={githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="text-sm font-medium text-ink-muted hover:text-brand-500"
+            class="text-ink-muted hover:text-brand-500 text-sm font-medium"
           >
             GitHub
           </a>
         )
       }
     </nav>
-    <p class="text-sm text-ink-muted">&copy; {year} {siteName}</p>
+    <p class="text-ink-muted text-sm">&copy; {year} {siteName}</p>
   </div>
 </footer>

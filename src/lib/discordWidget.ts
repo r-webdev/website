@@ -2,18 +2,23 @@ import {
   DiscordWidgetSchema,
   type DiscordWidgetData,
   type DiscordWidgetMember,
-} from '../schemas/discordWidget';
+} from "../schemas/discordWidget";
 
-const WIDGET_API = 'https://discord.com/api/guilds';
+const WIDGET_API = "https://discord.com/api/guilds";
 
-const statusOrder: Record<NonNullable<DiscordWidgetMember['status']>, number> = {
+const statusOrder: Record<
+  NonNullable<DiscordWidgetMember["status"]>,
+  number
+> = {
   online: 0,
   idle: 1,
   dnd: 2,
   offline: 3,
 };
 
-export async function fetchDiscordWidget(serverId: string): Promise<DiscordWidgetData | null> {
+export async function fetchDiscordWidget(
+  serverId: string,
+): Promise<DiscordWidgetData | null> {
   try {
     const response = await fetch(`${WIDGET_API}/${serverId}/widget.json`);
 
@@ -30,10 +35,12 @@ export async function fetchDiscordWidget(serverId: string): Promise<DiscordWidge
   }
 }
 
-export function sortMembersByStatus(members: DiscordWidgetMember[]): DiscordWidgetMember[] {
+export function sortMembersByStatus(
+  members: DiscordWidgetMember[],
+): DiscordWidgetMember[] {
   return [...members].sort((a, b) => {
-    const aStatus = statusOrder[a.status ?? 'offline'];
-    const bStatus = statusOrder[b.status ?? 'offline'];
+    const aStatus = statusOrder[a.status ?? "offline"];
+    const bStatus = statusOrder[b.status ?? "offline"];
     return aStatus - bStatus;
   });
 }
@@ -41,7 +48,7 @@ export function sortMembersByStatus(members: DiscordWidgetMember[]): DiscordWidg
 export function countMembersByStatus(members: DiscordWidgetMember[]) {
   return members.reduce(
     (counts, member) => {
-      const status = member.status ?? 'offline';
+      const status = member.status ?? "offline";
       counts[status] += 1;
       return counts;
     },
@@ -50,5 +57,5 @@ export function countMembersByStatus(members: DiscordWidgetMember[]) {
 }
 
 export function formatPresenceCount(count: number): string {
-  return count.toLocaleString('en-US');
+  return count.toLocaleString("en-US");
 }
