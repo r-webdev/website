@@ -1,14 +1,16 @@
-import { describe, expect, it } from 'vitest';
-import { createTestContainer } from '../../test/createTestContainer';
-import CommunityCallout from './CommunityCallout.astro';
+import { describe, expect, it } from "vitest";
+import { createTestContainer } from "../../test/createTestContainer";
+import CommunityCallout from "./CommunityCallout.astro";
 
-describe('CommunityCallout', () => {
-  it('clarifies the server is not a job board', async () => {
+describe("CommunityCallout", () => {
+  it("clarifies the server is not a job board", async () => {
     const container = await createTestContainer();
-    const html = await container.renderToString(CommunityCallout, { props: {} });
+    const html = await container.renderToString(CommunityCallout, {
+      props: {},
+    });
 
-    expect(html).toContain('Not a job board');
-    expect(html).toContain('not a place for hiring');
-    expect(html).toContain('/code-of-conduct');
+    expect(html).toContain("Not a job board");
+    expect(html).toContain("not a place for hiring");
+    expect(html).toContain("/code-of-conduct");
   });
 });

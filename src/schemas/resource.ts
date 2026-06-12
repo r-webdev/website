@@ -1,12 +1,12 @@
-import { z } from 'zod';
+import { z } from "zod";
 
 export const ResourceCategorySchema = z.enum([
-  'html',
-  'css',
-  'js',
-  'design',
-  'tools',
-  'accessibility',
+  "html",
+  "css",
+  "js",
+  "design",
+  "tools",
+  "accessibility",
 ]);
 
 export const ResourceSchema = z.object({

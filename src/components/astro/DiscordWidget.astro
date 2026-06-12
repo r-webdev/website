@@ -32,43 +32,43 @@ const sortedChannels = widget
 ---
 
 <section
-  class="border-b border-border bg-surface py-16 sm:py-20"
+  class="border-border bg-surface border-b py-16 sm:py-20"
   aria-labelledby="discord-widget-heading"
 >
   <div class="mx-auto max-w-6xl px-4 sm:px-6">
     <div class="mx-auto max-w-3xl text-center">
       <h2
         id="discord-widget-heading"
-        class="text-2xl font-bold tracking-tight text-ink sm:text-3xl"
+        class="text-ink text-2xl font-bold tracking-tight sm:text-3xl"
       >
         See who's online
       </h2>
-      <p class="mt-3 text-ink-muted">
+      <p class="text-ink-muted mt-3">
         Live from the server — members hanging out right now.
       </p>
     </div>
 
     {
       widget ? (
-        <div class="mx-auto mt-10 max-w-2xl overflow-hidden rounded-xl border border-border bg-surface-elevated shadow-lg">
-          <div class="h-1 w-full pride-border" aria-hidden="true" />
+        <div class="border-border bg-surface-elevated mx-auto mt-10 max-w-2xl overflow-hidden rounded-xl border shadow-lg">
+          <div class="pride-border h-1 w-full" aria-hidden="true" />
 
-          <div class="border-b border-border px-5 py-4 sm:px-6">
+          <div class="border-border border-b px-5 py-4 sm:px-6">
             <div class="flex flex-wrap items-center justify-between gap-4">
               <div class="text-left">
-                <p class="text-xs font-semibold uppercase tracking-wider text-admin">
+                <p class="text-admin text-xs font-semibold tracking-wider uppercase">
                   {widget.name}
                 </p>
-                <p class="mt-1 flex items-center gap-2 text-2xl font-bold text-ink">
+                <p class="text-ink mt-1 flex items-center gap-2 text-2xl font-bold">
                   <span class="relative flex h-3 w-3" aria-hidden="true">
-                    <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-mod opacity-40" />
-                    <span class="relative inline-flex h-3 w-3 rounded-full bg-mod" />
+                    <span class="bg-mod absolute inline-flex h-full w-full animate-ping rounded-full opacity-40" />
+                    <span class="bg-mod relative inline-flex h-3 w-3 rounded-full" />
                   </span>
                   {formatPresenceCount(widget.presence_count)} online
                 </p>
               </div>
               {statusCounts && (
-                <dl class="flex flex-wrap gap-3 text-xs text-ink-muted">
+                <dl class="text-ink-muted flex flex-wrap gap-3 text-xs">
                   <div class="flex items-center gap-1.5">
                     <span
                       class={`h-2 w-2 rounded-full ${statusDot.online}`}
@@ -99,14 +99,14 @@ const sortedChannels = widget
           </div>
 
           {sortedChannels.length > 0 && (
-            <div class="border-b border-border px-5 py-4 sm:px-6">
-              <h3 class="text-left text-xs font-semibold uppercase tracking-wider text-ink-muted">
+            <div class="border-border border-b px-5 py-4 sm:px-6">
+              <h3 class="text-ink-muted text-left text-xs font-semibold tracking-wider uppercase">
                 Open channels
               </h3>
               <ul class="mt-3 flex flex-wrap gap-2">
                 {sortedChannels.map((channel) => (
                   <li>
-                    <span class="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface px-3 py-1 text-sm text-ink-muted">
+                    <span class="border-border bg-surface text-ink-muted inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-sm">
                       <span aria-hidden="true">🔊</span>
                       {channel.name}
                     </span>
@@ -117,14 +117,14 @@ const sortedChannels = widget
           )}
 
           <div class="px-5 py-4 sm:px-6">
-            <h3 class="text-left text-xs font-semibold uppercase tracking-wider text-ink-muted">
+            <h3 class="text-ink-muted text-left text-xs font-semibold tracking-wider uppercase">
               Members in the lounge
             </h3>
             <ul class="mt-3 grid gap-2 sm:grid-cols-2">
               {displayedMembers.map((member) => {
                 const status = member.status ?? "offline";
                 return (
-                  <li class="flex items-center gap-3 rounded-lg border border-border bg-surface px-3 py-2">
+                  <li class="border-border bg-surface flex items-center gap-3 rounded-lg border px-3 py-2">
                     <span class="relative shrink-0">
                       <img
                         src={member.avatar_url}
@@ -136,18 +136,18 @@ const sortedChannels = widget
                       />
                       <span
                         class:list={[
-                          "absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 border-surface",
+                          "border-surface absolute -right-0.5 -bottom-0.5 h-3 w-3 rounded-full border-2",
                           statusDot[status],
                         ]}
                         aria-hidden="true"
                       />
                     </span>
                     <div class="min-w-0 text-left">
-                      <p class="truncate text-sm font-medium text-ink">
+                      <p class="text-ink truncate text-sm font-medium">
                         {member.username}
                       </p>
                       {member.game && (
-                        <p class="truncate text-xs text-ink-muted">
+                        <p class="text-ink-muted truncate text-xs">
                           Playing {member.game.name}
                         </p>
                       )}
@@ -157,19 +157,19 @@ const sortedChannels = widget
               })}
             </ul>
             {widget.members.length > displayedMembers.length && (
-              <p class="mt-3 text-center text-sm text-ink-muted">
+              <p class="text-ink-muted mt-3 text-center text-sm">
                 +{widget.members.length - displayedMembers.length} more in the
                 lounge
               </p>
             )}
           </div>
 
-          <div class="border-t border-border bg-surface px-5 py-4 text-center sm:px-6">
+          <div class="border-border bg-surface border-t px-5 py-4 text-center sm:px-6">
             <DiscordCTA href={joinUrl} />
           </div>
         </div>
       ) : (
-        <div class="mx-auto mt-10 max-w-md rounded-xl border border-border bg-surface-elevated px-6 py-8 text-center">
+        <div class="border-border bg-surface-elevated mx-auto mt-10 max-w-md rounded-xl border px-6 py-8 text-center">
           <p class="text-ink-muted">
             Couldn't load live server data right now.
           </p>

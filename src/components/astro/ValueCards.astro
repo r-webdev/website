@@ -1,39 +1,49 @@
 ---
 const cards = [
   {
-    title: 'Learn',
-    description: 'Share tutorials, docs, and tips — from your first line of HTML to advanced patterns.',
-    accent: 'border-t-brand-500',
-    icon: '📚',
+    title: "Learn",
+    description:
+      "Share tutorials, docs, and tips — from your first line of HTML to advanced patterns.",
+    accent: "border-t-brand-500",
+    icon: "📚",
   },
   {
-    title: 'Help',
-    description: 'Stuck on a bug or design decision? Ask the community — someone has been there.',
-    accent: 'border-t-mod',
-    icon: '🤝',
+    title: "Help",
+    description:
+      "Stuck on a bug or design decision? Ask the community — someone has been there.",
+    accent: "border-t-mod",
+    icon: "🤝",
   },
   {
-    title: 'Connect',
-    description: 'Meet developers and designers who care about craft, accessibility, and good code.',
-    accent: 'border-t-admin',
-    icon: '💬',
+    title: "Connect",
+    description:
+      "Meet developers and designers who care about craft, accessibility, and good code.",
+    accent: "border-t-admin",
+    icon: "💬",
   },
   {
-    title: 'Belong',
-    description: 'An inclusive space where everyone is welcome — learners, hobbyists, and pros alike.',
-    accent: 'border-t-transparent',
-    icon: '🌈',
+    title: "Belong",
+    description:
+      "An inclusive space where everyone is welcome — learners, hobbyists, and pros alike.",
+    accent: "border-t-transparent",
+    icon: "🌈",
     prideStripe: true,
   },
 ];
 ---
 
-<section class="border-b border-border bg-surface py-16 sm:py-20" aria-labelledby="value-cards-heading">
+<section
+  class="border-border bg-surface border-b py-16 sm:py-20"
+  aria-labelledby="value-cards-heading"
+>
   <div class="mx-auto max-w-6xl px-4 sm:px-6">
-    <h2 id="value-cards-heading" class="text-center text-2xl font-bold tracking-tight text-ink sm:text-3xl">
+    <h2
+      id="value-cards-heading"
+      class="text-ink text-center text-2xl font-bold tracking-tight sm:text-3xl"
+    >
       What we're about
     </h2>
-    <p class="mx-auto mt-3 max-w-2xl text-center text-ink-muted">
+    <p class="text-ink-muted mx-auto mt-3 max-w-2xl text-center">
       A cozy corner of the internet for people who build for the web.
     </p>
     <ul class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -41,9 +51,9 @@ const cards = [
         cards.map((card) => (
           <li
             class:list={[
-              'relative overflow-hidden rounded-xl border border-border bg-surface-elevated p-6',
+              "border-border bg-surface-elevated relative overflow-hidden rounded-xl border p-6",
               card.accent,
-              'border-t-4',
+              "border-t-4",
             ]}
           >
             {card.prideStripe && (
@@ -55,8 +65,10 @@ const cards = [
             <span class="text-2xl" aria-hidden="true">
               {card.icon}
             </span>
-            <h3 class="mt-3 text-lg font-semibold text-ink">{card.title}</h3>
-            <p class="mt-2 text-sm leading-relaxed text-ink-muted">{card.description}</p>
+            <h3 class="text-ink mt-3 text-lg font-semibold">{card.title}</h3>
+            <p class="text-ink-muted mt-2 text-sm leading-relaxed">
+              {card.description}
+            </p>
           </li>
         ))
       }

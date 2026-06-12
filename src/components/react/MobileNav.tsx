@@ -1,5 +1,5 @@
-import { useEffect, useId, useRef, useState } from 'react';
-import type { NavLink } from '../../lib/nav';
+import { useEffect, useId, useRef, useState } from "react";
+import type { NavLink } from "../../lib/nav";
 
 interface MobileNavProps {
   navLinks: NavLink[];
@@ -18,14 +18,14 @@ export default function MobileNav({ navLinks, discordUrl }: MobileNavProps) {
     firstLinkRef.current?.focus();
 
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
+      if (event.key === "Escape") {
         setOpen(false);
         buttonRef.current?.focus();
       }
     };
 
-    document.addEventListener('keydown', onKeyDown);
-    return () => document.removeEventListener('keydown', onKeyDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
   }, [open]);
 
   return (
@@ -33,19 +33,19 @@ export default function MobileNav({ navLinks, discordUrl }: MobileNavProps) {
       <button
         ref={buttonRef}
         type="button"
-        className="inline-flex items-center justify-center rounded-lg border border-border bg-surface-elevated px-3 py-2 text-sm font-medium text-ink hover:bg-surface-hover"
+        className="border-border bg-surface-elevated text-ink hover:bg-surface-hover inline-flex items-center justify-center rounded-lg border px-3 py-2 text-sm font-medium"
         aria-expanded={open}
         aria-controls={menuId}
         onClick={() => setOpen((value) => !value)}
       >
-        {open ? 'Close' : 'Menu'}
+        {open ? "Close" : "Menu"}
       </button>
 
       {open && (
         <nav
           id={menuId}
           aria-label="Mobile navigation"
-          className="absolute left-0 right-0 top-full border-b border-border bg-surface-elevated px-4 py-4 shadow-md"
+          className="border-border bg-surface-elevated absolute top-full right-0 left-0 border-b px-4 py-4 shadow-md"
         >
           <ul className="flex flex-col gap-3">
             {navLinks.map((link, index) => (
@@ -53,7 +53,7 @@ export default function MobileNav({ navLinks, discordUrl }: MobileNavProps) {
                 <a
                   ref={index === 0 ? firstLinkRef : undefined}
                   href={link.href}
-                  className="block text-sm font-medium text-ink-muted hover:text-brand-500"
+                  className="text-ink-muted hover:text-brand-500 block text-sm font-medium"
                   onClick={() => setOpen(false)}
                 >
                   {link.label}
@@ -65,7 +65,7 @@ export default function MobileNav({ navLinks, discordUrl }: MobileNavProps) {
                 href={discordUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex rounded-lg bg-mod px-4 py-2 text-sm font-semibold text-white hover:bg-mod-700"
+                className="bg-mod hover:bg-mod-700 inline-flex rounded-lg px-4 py-2 text-sm font-semibold text-white"
               >
                 Join Discord
               </a>

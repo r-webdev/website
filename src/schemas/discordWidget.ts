@@ -1,9 +1,9 @@
-import { z } from 'zod';
+import { z } from "zod";
 
 export const DiscordWidgetMemberSchema = z.object({
   id: z.string(),
   username: z.string(),
-  status: z.enum(['online', 'idle', 'dnd', 'offline']).optional(),
+  status: z.enum(["online", "idle", "dnd", "offline"]).optional(),
   avatar_url: z.url(),
   game: z.object({ name: z.string() }).optional(),
   channel_id: z.string().optional(),
