@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
+import { navLinks } from "@lib/nav";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import { navLinks } from "../../lib/nav";
 import MobileNav from "./MobileNav";
 
 describe("MobileNav", () => {

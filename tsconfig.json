@@ -9,6 +9,11 @@
       }
     ],
     "paths": {
+      "@components/*": ["./src/components/*"],
+      "@layouts/*": ["./src/layouts/*"],
+      "@lib/*": ["./src/lib/*"],
+      "@schemas/*": ["./src/schemas/*"],
+      "@test/*": ["./src/test/*"],
       "@/*": ["./src/*"]
     },
     "jsx": "react-jsx",

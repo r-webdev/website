@@ -1,12 +1,12 @@
 ---
-import CommunityCallout from "../components/astro/CommunityCallout.astro";
-import DiscordWidget from "../components/astro/DiscordWidget.astro";
-import Hero from "../components/astro/Hero.astro";
-import ValueCards from "../components/astro/ValueCards.astro";
-import BaseLayout from "../layouts/BaseLayout.astro";
-import { fetchDiscordWidget } from "../lib/discordWidget";
+import site from "@/data/site.json";
+import DiscordWidget from "@components/discord/DiscordWidget.astro";
+import CommunityCallout from "@components/landing/CommunityCallout.astro";
+import Hero from "@components/landing/Hero.astro";
+import ValueCards from "@components/landing/ValueCards.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { fetchDiscordWidget } from "@lib/discordWidget";
 import { PUBLIC_DISCORD_INVITE_URL } from "astro:env/client";
-import site from "../data/site.json";
 const discordWidget = await fetchDiscordWidget(site.discordServerId);
 ---
 

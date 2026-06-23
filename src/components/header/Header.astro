@@ -1,8 +1,8 @@
 ---
-import DiscordCTA from "./DiscordCTA.astro";
-import ServerLogo from "./ServerLogo.astro";
-import MobileNav from "../react/MobileNav";
-import { navLinks } from "../../lib/nav";
+import DiscordCTA from "@components/discord/DiscordCTA.astro";
+import ServerLogo from "@components/icons/ServerLogo.astro";
+import { navLinks } from "@lib/nav";
+import MobileNav from "./MobileNav.astro";
 
 interface Props {
   siteName: string;
@@ -44,6 +44,6 @@ const { siteName, discordUrl } = Astro.props;
       <DiscordCTA href={discordUrl} />
     </div>
 
-    <MobileNav client:load navLinks={navLinks} discordUrl={discordUrl} />
+    <MobileNav navLinks={navLinks} discordUrl={discordUrl} />
   </div>
 </header>

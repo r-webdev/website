@@ -1,5 +1,5 @@
+import type { NavLink } from "@lib/nav";
 import { useEffect, useId, useRef, useState } from "react";
-import type { NavLink } from "../../lib/nav";
 
 interface MobileNavProps {
   navLinks: NavLink[];

@@ -9,5 +9,7 @@
   },
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "oxc.enable": true
+  "oxc.enable": true,
+  "oxc.configPath": "oxlint.config.ts",
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

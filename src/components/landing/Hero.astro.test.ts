@@ -1,5 +1,5 @@
+import { createTestContainer } from "@test/createTestContainer";
 import { describe, expect, it } from "vitest";
-import { createTestContainer } from "../../test/createTestContainer";
 import Hero from "./Hero.astro";
 
 describe("Hero", () => {

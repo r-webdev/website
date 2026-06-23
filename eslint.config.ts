@@ -10,6 +10,7 @@ export default defineConfig([
   js.configs.recommended,
   ...tseslint.configs.recommended,
   ...astro.configs.recommended,
+
   ...oxlint.configs["flat/recommended"],
 
   prettierConfig,
