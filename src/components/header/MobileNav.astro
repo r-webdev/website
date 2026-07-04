@@ -1,0 +1,114 @@
+---
+import type { NavLink } from "@lib/nav";
+
+interface Props {
+  navLinks: NavLink[];
+  discordUrl: string;
+}
+
+const { navLinks, discordUrl } = Astro.props;
+const menuId = "mobile-nav-menu";
+---
+
+<mobile-nav class="md:hidden">
+  <button
+    type="button"
+    aria-expanded="false"
+    aria-controls={menuId}
+    class="border-border bg-surface-elevated text-ink hover:bg-surface-hover inline-flex items-center justify-center rounded-lg border px-3 py-2 text-sm font-medium"
+  >
+    Menu
+  </button>
+
+  <nav
+    id={menuId}
+    aria-label="Mobile navigation"
+    aria-hidden="true"
+    class="border-border bg-surface-elevated absolute top-full right-0 left-0 border-b px-4 py-4 shadow-md aria-hidden:hidden"
+  >
+    <ul class="flex flex-col gap-3">
+      {
+        navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="text-ink-muted hover:text-brand-500 block text-sm font-medium"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+      <li>
+        <a
+          href={discordUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-mod hover:bg-mod-700 inline-flex rounded-lg px-4 py-2 text-sm font-semibold text-white"
+        >
+          Join Discord
+        </a>
+      </li>
+    </ul>
+  </nav>
+</mobile-nav>
+
+<script>
+  import { defineCustomElement } from "@lib/custom-elements";
+
+  class MobileNav extends HTMLElement {
+    private button!: HTMLButtonElement;
+    private nav!: HTMLElement;
+    private firstLink!: HTMLAnchorElement | null;
+
+    #open = false;
+
+    connectedCallback() {
+      this.button = this.querySelector("button")!;
+      this.nav = this.querySelector("nav")!;
+      this.firstLink = this.nav.querySelector("a");
+
+      this.button.addEventListener("click", this.#toggle);
+      this.nav.addEventListener("click", this.#onNavClick);
+      document.addEventListener("keydown", this.#onKeyDown);
+    }
+
+    disconnectedCallback() {
+      this.button.removeEventListener("click", this.#toggle);
+      this.nav.removeEventListener("click", this.#onNavClick);
+      document.removeEventListener("keydown", this.#onKeyDown);
+    }
+
+    #toggle = () => {
+      this.#open ? this.#close() : this.#openMenu();
+    };
+
+    #openMenu() {
+      this.#open = true;
+      this.nav.removeAttribute("aria-hidden");
+      this.button.setAttribute("aria-expanded", "true");
+      this.button.textContent = "Close";
+      this.firstLink?.focus();
+    }
+
+    #close() {
+      this.#open = false;
+      this.nav.setAttribute("aria-hidden", "true");
+      this.button.setAttribute("aria-expanded", "false");
+      this.button.textContent = "Menu";
+    }
+
+    #onNavClick = (e: Event) => {
+      if ((e.target as HTMLElement).closest("a")) this.#close();
+    };
+
+    #onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && this.#open) {
+        this.#close();
+        this.button.focus();
+      }
+    };
+  }
+
+  defineCustomElement("mobile-nav", MobileNav);
+</script>

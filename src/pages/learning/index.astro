@@ -1,9 +1,9 @@
 ---
+import ResourceSearch from "@components/resources/ResourceSearch";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { sortFeaturedFirst } from "@lib/resources";
+import type { Resource } from "@schemas/resource";
 import { getCollection } from "astro:content";
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import ResourceSearch from "../../components/react/ResourceSearch";
-import { sortFeaturedFirst } from "../../lib/resources";
-import type { Resource } from "../../schemas/resource";
 
 const entries = await getCollection("resources");
 

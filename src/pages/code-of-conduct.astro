@@ -1,6 +1,6 @@
 ---
+import ContentLayout from "@layouts/ContentLayout.astro";
 import { getEntry, render } from "astro:content";
-import ContentLayout from "../layouts/ContentLayout.astro";
 
 const entry = await getEntry("pages", "code-of-conduct");
 if (!entry) {
